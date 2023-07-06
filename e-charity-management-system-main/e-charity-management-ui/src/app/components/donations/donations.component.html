@@ -1,0 +1,14 @@
+<div class="row" style="height:100%"> 
+  <div class="col-2" style="background-color: #9c3353;"> 
+        <app-profile></app-profile>         
+  </div> 
+  <div class="col-10" style="background-color: whitesmoke;"> 
+    <div class="row" style="margin: 8em;">
+      <app-donation-card
+        *ngFor="let donation of donations"      
+        [donatonRequest] = "donation"
+        class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12" >
+      </app-donation-card>
+    </div>
+  </div> 	 
+</div> 

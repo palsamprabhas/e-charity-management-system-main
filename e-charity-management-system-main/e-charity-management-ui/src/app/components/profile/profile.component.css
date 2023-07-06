@@ -1,0 +1,13 @@
+.img-container{
+    border-radius: 50%;
+    height:70pt;
+    width:70pt;
+    float: left;
+    overflow:hidden;
+    margin:15px;
+  }
+  
+  img{
+    height:70pt;
+    width:70pt;
+  }

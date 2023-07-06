@@ -1,0 +1,46 @@
+<div class="row" style="height:100%"> 
+    <div class="col-2" style="background-color: #9c3353;"> 
+          <app-profile></app-profile>         
+    </div> 
+    <div class="col-10" style="background-color: whitesmoke;"> 
+      <h2 class="text-uppercase">Donations history</h2>
+    <table class="table align-middle mb-0 bg-white">
+        <thead class="bg-light">
+          <tr>
+            <th>NGO Details</th>
+            <th>Subject</th>
+            <th>Description</th>
+            <th>Amount</th>
+            <th>Message</th>  
+            <th>Status</th>       
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let userDonation of userDonations">
+            <td>
+                  <div class="ms-3">
+                        <p class="fw-bold mb-1">{{userDonation.donationRequestBy.name}}</p>
+                        <p class="text-muted mb-0">{{userDonation.donationRequestBy.email}}</p>
+                        <p class="text-muted mb-0">{{userDonation.donationRequestBy.phoneNumber}}</p>
+                  </div>
+            </td>
+            <td>
+              <p class="fw-normal mb-1">{{userDonation.fundRaise.subject}}</p>          
+            </td>
+            <td>
+             <p class="fw-normal mb-1">{{userDonation.fundRaise.description}}</p>          
+            </td>
+            <td>
+              <p class="fw-normal mb-1">{{userDonation.donation.amount}}</p>          
+            </td>
+            <td>
+              <p class="fw-normal mb-1">{{userDonation.donation.message}}</p>     
+            </td>
+            <td>
+                  <p class="fw-normal mb-1">{{userDonation.donation.status}}</p>     
+            </td>
+          </tr>            
+        </tbody>
+      </table>
+    </div> 	 
+  </div> 

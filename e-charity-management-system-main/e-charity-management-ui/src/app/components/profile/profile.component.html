@@ -1,0 +1,50 @@
+<br>
+<div class="row">
+    <div class="col-12" style="padding-left:90px ;">
+        <div class="img-container"><img  src={{userProfilePicUrl}}></div>
+    </div>
+    <div class="col-12">
+        <table align="center"> 
+            <tr>
+                <td align="center">
+                    <span  style="color:lightgoldenrodyellow" class="text-uppercase">{{user.name}}</span>   
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    <span style="color:white">{{user.role}}</span>   
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    <span style="color:white">{{user.email}}</span>   
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    <span style="color:white">{{user.phoneNumber}}</span>   
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<nav class="nav nav-pills nav-fill flex-column" style="width: 100%; padding-left: 10px;">    
+    <a class="btn btn-outline-light btn-lg" href="/admin-dashboard" *ngIf="isAdmin">Home</a>
+    <br *ngIf="isAdmin">
+    <a class="btn btn-outline-light btn-lg" href="/requests" *ngIf="isAdmin">Pening Requests</a>     
+    <br *ngIf="isAdmin">     
+    <a class="btn btn-outline-light btn-lg" href="/ngo-dashboard" *ngIf="isNgo">Home</a>          
+    <br *ngIf="isNgo"> 
+    <a class="btn btn-outline-light btn-lg" href="/create-donation" *ngIf="isNgo">Raise Funds</a>          
+    <br *ngIf="isNgo">       
+    <a class="btn btn-outline-light btn-lg" href="/donation-requests" *ngIf="isDonor">Home</a>    
+    <br *ngIf="isDonor"> 
+    <a class="btn btn-outline-light btn-lg" href="/user-donation-history" *ngIf="isDonor">Donations History</a>    
+    <br *ngIf="isDonor">         
+    <a class="btn btn-outline-light  btn-lg" href="/update-profile">Update Profile</a>
+    <br> 
+    <a class="btn btn-outline-light  btn-lg" (click)="logout()">Logout</a>
+</nav>

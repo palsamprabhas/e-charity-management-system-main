@@ -1,0 +1,112 @@
+<section class="vh-100"  style="background-color: #9c3353;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col col-xl-6"> 
+          <h3 class="fw-bold mb-2 text-uppercase" style="color: white;">e-charity management</h3> 
+          <div class="card" style="border-radius: 1rem; ">
+            <div class="row g-0">
+              <div class="col-md-6 col-lg-5 d-none d-md-block">
+                <img src="https://insidearabia.com/wp-content/uploads/2020/05/IMG_2393-1280x640.jpg"
+                  alt="login form" class="img-fluid" style="border-radius: 1rem 1rem 1rem 1rem;margin: 80px 20px 20px 20px;" />                  
+              </div>
+              <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                <div class="card-body p-4 p-lg-5 text-black">
+                  <h2 class="fw-bold mb-2 text-uppercase">Sign-up</h2>
+
+                  <span >I am signup for</span>
+                  <select class="form-control" [(ngModel)]="selectedRoleOption" name="type" >                 
+                    <option value="DONOR" selected>DONOR</option>
+                    <option value="NGO">NGO</option>
+                  </select>
+                  <br>               
+                  <form *ngIf="selectedRoleOption == 'DONOR'" [formGroup]="donorUserForm" (ngSubmit)="createDonorUserDetails()" [class.was-validated]="isDonorFormSubmitted">                                   
+                    <div class="input-group mb-3">
+                      <span class="input-group-text">@</span>
+                      <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" formControlName="username" 
+                      [ngClass]="{'is-invalid':isDonorFormSubmitted && donorUserForm.controls['username'].errors}" required>
+                    </div>
+                    <div class="input-group mb-3">
+                      <input type="password"  placeholder="Password" class="form-control" formControlName="password"
+                      [ngClass]="{'is-invalid':isDonorFormSubmitted && donorUserForm.controls['password'].errors}" required/>                   
+                    </div>                                        
+                    <div class="input-group mb-3">
+                      <input type="password"  placeholder="Confirmpassword" class="form-control" formControlName="confirmPassword" 
+                      [ngClass]="{'is-invalid':isDonorFormSubmitted && donorUserForm.controls['confirmPassword'].errors}" required/>                   
+                    </div>
+                    <div class="input-group mb-3">
+                      <input type="text"  placeholder="Name" class="form-control"  formControlName="name" 
+                      [ngClass]="{'is-invalid':isDonorFormSubmitted && donorUserForm.controls['name'].errors}" required/>                   
+                    </div>
+                    <div class="input-group mb-3">
+                      <input type="text"  placeholder="Email Address" class="form-control" formControlName="email"
+                      [ngClass]="{'is-invalid':isDonorFormSubmitted && donorUserForm.controls['email'].errors}" required/>                   
+                    </div>
+                    <div class="input-group mb-3">
+                      <input type="text"  placeholder="Phone Number" class="form-control" formControlName="phoneNumber" 
+                      [ngClass]="{'is-invalid':isDonorFormSubmitted && donorUserForm.controls['phoneNumber'].errors}" required/>                   
+                    </div>
+                    <div class="input-group mb-3">
+                      <input type="textarea"  placeholder="Address" class="form-control" formControlName="address" 
+                      [ngClass]="{'is-invalid':isDonorFormSubmitted && donorUserForm.controls['address'].errors}" required/>                   
+                    </div>
+                    <div class="input-group mb-3" style="background-color: whitesmoke; padding: 5px;">
+                      <label>Upload profile photo </label><input type="file" id="file" (change)="addProfilePhoto($event)">        
+                    </div>
+                    <div class="pt-10 mb-4">
+                      <button type="submit" class="btn btn-outline-primary">Signup</button>                     
+                    </div>                                                   
+                  </form>
+                  <form *ngIf="selectedRoleOption == 'NGO'" [formGroup]="ngoUserForm" (ngSubmit)="createNGOUserDetails()" [class.was-validated]="isNGOFormSubmitted">                                   
+                    <div class="input-group mb-3">
+                      <span class="input-group-text">@</span>
+                      <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" formControlName="username" 
+                      [ngClass]="{'is-invalid':isNGOFormSubmitted && ngoUserForm.controls['username'].errors}" required>
+                    </div>
+                    <div class="input-group mb-3">
+                      <input type="password"  placeholder="Password" class="form-control" formControlName="password"
+                      [ngClass]="{'is-invalid':isNGOFormSubmitted && ngoUserForm.controls['password'].errors}" required/>                   
+                    </div>                                        
+                    <div class="input-group mb-3">
+                      <input type="password"  placeholder="Confirmpassword" class="form-control" formControlName="confirmPassword" 
+                      [ngClass]="{'is-invalid':isNGOFormSubmitted && ngoUserForm.controls['confirmPassword'].errors}" required/>                   
+                    </div>
+                    <div class="input-group mb-3">
+                      <input type="text"  placeholder="NGO Name" class="form-control" formControlName="name"
+                      [ngClass]="{'is-invalid':isNGOFormSubmitted && ngoUserForm.controls['name'].errors}" required/>                   
+                    </div>
+                    <div class="input-group mb-3">
+                      <input type="text"  placeholder="NGO Type" class="form-control" formControlName="ngoType"
+                      [ngClass]="{'is-invalid':isNGOFormSubmitted && ngoUserForm.controls['ngoType'].errors}" required/>                   
+                    </div>
+                    <div class="input-group mb-3">
+                      <input type="text"  placeholder="Short desciption about NGO" class="form-control" formControlName="ngoShortDescription" 
+                      [ngClass]="{'is-invalid':isNGOFormSubmitted && ngoUserForm.controls['ngoShortDescription'].errors}" required/>                   
+                    </div>
+                    <div class="input-group mb-3">
+                      <input type="text"  placeholder="Organization Email Address" class="form-control" formControlName="email"
+                      [ngClass]="{'is-invalid':isNGOFormSubmitted && ngoUserForm.controls['email'].errors}" required/>                   
+                    </div>
+                    <div class="input-group mb-3">
+                      <input type="text"  placeholder="Phone Number" class="form-control" formControlName="phoneNumber"
+                      [ngClass]="{'is-invalid':isNGOFormSubmitted && ngoUserForm.controls['phoneNumber'].errors}" required/>                   
+                    </div>
+                    <div class="input-group mb-3">
+                      <input type="textarea"  placeholder="Address" class="form-control" formControlName="address"
+                      [ngClass]="{'is-invalid':isNGOFormSubmitted && ngoUserForm.controls['address'].errors}" required/>                   
+                    </div>
+                    <div class="input-group mb-3" style="background-color: whitesmoke; padding: 5px;">
+                      <label>Upload profile photo </label><input type="file" id="file" (change)="addProfilePhoto($event)">        
+                    </div>
+                    <div class="pt-10 mb-4">
+                      <button type="submit" class="btn btn-outline-primary">Signup</button>                     
+                    </div>                                                   
+                  </form>                  
+                  <p class="mb-5 pb-lg-2">Already signed up with e-charity? <a href="#!" style="color: #393f81;">Login here</a></p>  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

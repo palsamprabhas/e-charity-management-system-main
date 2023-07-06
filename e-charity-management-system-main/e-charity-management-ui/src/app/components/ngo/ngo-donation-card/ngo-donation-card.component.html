@@ -1,0 +1,24 @@
+<br>
+<div class="card" style="width: 20rem;" > 
+  <div class="card-body">
+    <h2 class="card-title">{{donatonRequest.subject}}</h2>
+    <p class="card-text">{{donatonRequest.description}}</p>        
+    <div class="progress">      
+      <div [class]="progressClass" role="progressbar" [style]="progressStyle" aria-valuenow="progressStyle" aria-valuemin="0" aria-valuemax="100"> {{progressPercentage}}%</div>      
+    </div>
+    <div style="margin-top: 10px;">
+      Collected amount <span style="font-weight: bold;">{{donatonRequest.collectedAmount}}</span>
+    </div>
+    <div style="margin-top: 10px;">
+      Required amount <span style="font-weight: bold;">{{donatonRequest.amount}}</span>
+    </div>  
+    <hr>
+    <div class="row">                           
+      <div class="col-12">
+        <button mat-button  class="btn btn-primary" style="background-color: #9c3353; border-color:white; color: white;" (click)="getDonarDetails(donatonRequest.id)">Get donar details</button>               
+      </div>        
+    </div>              
+  </div>
+</div>
+
+  

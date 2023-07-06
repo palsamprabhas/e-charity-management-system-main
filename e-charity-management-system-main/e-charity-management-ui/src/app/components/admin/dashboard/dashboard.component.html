@@ -1,0 +1,38 @@
+
+<div class="row" style="height:100%"> 
+  <div class="col-2" style="background-color: #9c3353;"> 
+        <app-profile></app-profile>         
+  </div> 
+  <div class="col-10" style="background-color: whitesmoke;"> 
+    <br>
+    <br>
+    <div class="row">
+      <div class="col-2"></div>     
+      <div class="col-4">
+        <div>
+          <h2>OVERALL PAYMENT STATUS REPORT</h2>          
+        </div>
+        <div class="chart">
+          <canvas baseChart
+                  [data]="paymentPieChartData"
+                  [type]="pieChartType"
+                  [options]="pieChartOptions">
+          </canvas>
+        </div>
+      </div>
+      <div class="col-4">
+        <div>
+          <h2>OVERALL NGO REQUESTS STATUS</h2>          
+        </div>
+        <div class="chart">
+          <canvas baseChart
+                  [data]="requestsPieChartData"
+                  [type]="pieChartType"
+                  [options]="pieChartOptions">
+          </canvas>
+        </div>
+      </div>
+  </div>
+  </div> 	 
+</div> 
+

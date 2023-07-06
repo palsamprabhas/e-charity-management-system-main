@@ -1,0 +1,51 @@
+<br>
+<div class="card" style="width: 25rem;">  
+  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="d-block w-100" style="height: 250px;" src={{donationPhoto}} alt="First slide">
+      </div>   
+    </div>    
+  </div>
+  <div class="card-body">
+    <h2 class="card-title">{{donatonRequest.subject}}</h2>
+    <p class="card-text">{{donatonRequest.description}}</p>        
+    <div class="progress">      
+      <div [class]="progressClass" role="progressbar" [style]="progressStyle" aria-valuenow="progressStyle" aria-valuemin="0" aria-valuemax="100"> {{progressPercentage}}%</div>      
+    </div>
+    <div style="margin-top: 10px;">
+      Collected amount <span style="font-weight: bold;">{{donatonRequest.collectedAmount}}</span>
+    </div>
+    <div style="margin-top: 10px;">
+      Required amount <span style="font-weight: bold;">{{donatonRequest.amount}}</span>
+    </div>
+    <hr>
+    <div class="row">          
+      <div class="col-8">
+              Requested by
+        <div style="font-weight: bold;" class="text-uppercase">{{donatonRequest.requestedBy}}</div>
+      </div>    
+      <div class="col-4">       
+        <a class="btn btn-primary" style="background-color: #9c3353; border-color:white" (click)="toggleShowCollectAmountForm()">Donate</a>  
+      </div>        
+    </div>
+    <div *ngIf='showCollectAmountForm'>
+      <hr>
+      <form [formGroup]="donationAmountForm" (ngSubmit)="donate(donatonRequest.id)">                                   
+        <div class="input-group mb-3">         
+          <input type="text" class="form-control" placeholder="amount" aria-label="amount" aria-describedby="basic-addon1" formControlName="amount" >
+        </div>
+        <div class="input-group mb-3">         
+          <input type="text" class="form-control" placeholder="message" aria-label="message" aria-describedby="basic-addon1" formControlName="message" >
+        </div>  
+        <div align="end">
+          <button type="submit" class="btn btn-primary" style="background-color: #9c3353; border-color:white" >Sumbit</button>           
+        </div>        
+      </form>
+    </div>
+
+       
+  </div>
+</div>
+
+  

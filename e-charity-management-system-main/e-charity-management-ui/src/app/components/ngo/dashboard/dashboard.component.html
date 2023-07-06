@@ -1,0 +1,52 @@
+<div class="row" style="height:100%"> 
+    <div class="col-2" style="background-color: #9c3353;"> 
+          <app-profile></app-profile>         
+    </div> 
+    <div class="col-10" style="background-color: whitesmoke;"> 
+        <br>
+        <h2>FUND RAISE REQUESTS</h2>
+        <div class="row" style="margin: 20px;">
+          <app-ngo-donation-card
+            *ngFor="let donation of approvedFundRaiseRequests"      
+            [donatonRequest] = "donation"
+            class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-12" >
+          </app-ngo-donation-card>
+        </div>                   
+        <br>
+        <br>
+        <div>
+            <h2>MY PENDING FUND REQUESTS</h2>
+    
+            <table class="table align-middle mb-0 bg-white">
+                <thead class="bg-light">
+                <tr>
+                    <th>Subject</th>
+                    <th>Description</th>       
+                    <th>Amount</th>
+                    <th>Status</th>            
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let pendingFundRaiseRequest of pendingFundRaiseRequests">
+                    <td>
+                    <div class="d-flex align-items-center">            
+                        <div class="ms-3">
+                        <p class="fw-normal mb-1">{{pendingFundRaiseRequest.subject}}</p>        
+                        </div>
+                    </div>
+                    </td>
+                    <td>
+                    <p class="fw-normal mb-1">{{pendingFundRaiseRequest.description}}</p>          
+                    </td>
+                    <td>
+                    <p class="fw-normal mb-1">{{pendingFundRaiseRequest.amount}}</p>     
+                    </td>
+                    <td>{{pendingFundRaiseRequest.status}}</td>           
+                </tr>            
+                </tbody>
+            </table>
+        </div>
+    </div> 	 
+  </div> 
+  
+  

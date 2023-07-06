@@ -1,0 +1,45 @@
+<div class="row" style="height:100%"> 
+    <div class="col-2" style="background-color: #9c3353;"> 
+          <app-profile></app-profile>         
+    </div> 
+    <div class="col-10" style="background-color: whitesmoke;"> 
+        <section class="vh-100" >
+          <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+              <div class="col col-xl-4">
+                <div class="card" style="border-radius: 1rem; ">
+                  <div class="row g-0">             
+                    <div class="col d-flex align-items-center">
+                      <div class="card-body p-4 p-lg-5 text-black">
+                        <form [formGroup]="userForm" [class.was-validated]="isFormSubmitted" (ngSubmit)="upateUser()" >               
+                          <h2 class="fw-bold mb-2 text-uppercase">Update User Profile</h2>
+                          <div class="input-group mb-3">                    
+                            <input type="text" class="form-control" placeholder="user name"  formControlName="name" 
+                            [ngClass]="{'is-invalid':isFormSubmitted && userForm.controls['name'].errors}" required/>
+                          </div>       
+                          <div class="input-group mb-3">                    
+                            <input type="text" class="form-control" placeholder="email"  formControlName="email" 
+                            [ngClass]="{'is-invalid':isFormSubmitted && userForm.controls['email'].errors}" required/>
+                          </div>   
+                          <div class="input-group mb-3">                    
+                            <input type="text" class="form-control" placeholder="phone number"  formControlName="phoneNumber" 
+                            [ngClass]="{'is-invalid':isFormSubmitted && userForm.controls['phoneNumber'].errors}" required/>
+                          </div>                        
+                          <div class="pt-10 mb-4 row">
+                            <span class="col-2"></span>
+                            <button type="button" class="btn col-3" style="background-color: #9c3353;color: white;">Cancel</button>
+                            <span class="col-1"></span>
+                            <button type="submit" class="btn col-3" style="background-color: #9c3353;color: white;" >Update</button>
+                            <span class="col-2"></span>
+                          </div>                                
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div> 	 	 
+  </div> 

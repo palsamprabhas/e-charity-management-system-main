@@ -1,0 +1,39 @@
+<section class="vh-100" style="background-color: #9c3353;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col col-xl-6">        
+          <h3 class="fw-bold mb-2 text-uppercase" style="color: white;">e-charity management</h3> 
+          <div class="card" style="border-radius: 1rem; ">          
+            <div class="row g-0">
+              <div class="col-md-6 col-lg-5 d-none d-md-block">               
+                <img src="https://insidearabia.com/wp-content/uploads/2020/05/IMG_2393-1280x640.jpg"
+                  alt="login form" class="img-fluid" style="border-radius: 1rem 1rem 1rem 1rem;margin: 80px 20px 20px 20px;" />                  
+              </div>
+              <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                <div class="card-body p-4 p-lg-5 text-black"> 
+                  <form [formGroup]="userForm"  (ngSubmit)="login()" [class.was-validated]="isUserFormSubmitted">     
+                    <h3 class="fw-bold mb-2 text-uppercase" style="color: #9c3353;">login</h3>                            
+                    <div class="input-group mb-3">
+                      <span class="input-group-text">@</span>
+                      <input  type="text" class="form-control" placeholder="Username" formControlName="username"  aria-label="Username" aria-describedby="basic-addon1"
+                      [ngClass]="{'is-invalid':isUserFormSubmitted && userForm.controls['username'].errors}" required />
+                    </div>
+                    <div class="input-group mb-3">
+                      <input type="password"  placeholder="Password" formControlName="password" class="form-control" 
+                      [ngClass]="{'is-invalid':isUserFormSubmitted && userForm.controls['username'].errors}" required/>                   
+                    </div>
+                    <div class="pt-10 mb-4">
+                      <button type="submit" class="btn btn-outline-primary">Login</button>
+                    </div>                 
+                  </form>
+                  
+                  <a class="medium text-muted" href="#!">Forgot password?</a>
+                  <p class="mb-5 pb-lg-2">Don't have an account? <a href="signup" style="color: #393f81;">Sign-up here</a></p>   
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
